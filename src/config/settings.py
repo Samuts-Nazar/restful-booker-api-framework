@@ -8,15 +8,20 @@ load_dotenv()
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(
-        env_file=".env",
-        extra="ignore"
-    )
+    model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    base_url: str = Field(alias="BASE_URL")
+    auth_url: str = Field(alias="AUTH_URL")
+    booking_url: str = Field(alias="BOOKING_URL")
+    room_url: str = Field(alias="ROOM_URL")
+    branding_url: str = Field(alias="BRANDING_URL")
+    message_url: str = Field(alias="MESSAGE_URL")
+    report_url: str = Field(alias="REPORT_URL")
+    assets_url: str = Field(alias="ASSETS_URL")
 
-    username: str = Field(alias="USERNAME")
-    password: str = Field(alias="PASSWORD")
+    default_timeout: int = 10
+
+    username: str = Field(alias="API_USERNAME")
+    password: str = Field(alias="API_PASSWORD")
 
     db_url: str = Field(alias="DB_URL")
     db_username: str = Field(alias="DB_USERNAME")
@@ -29,3 +34,4 @@ def get_settings() -> Settings:
 
 
 settings = get_settings()
+default_timeout: int = 10
