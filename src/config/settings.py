@@ -23,9 +23,11 @@ class Settings(BaseSettings):
     username: str = Field(alias="API_USERNAME")
     password: str = Field(alias="API_PASSWORD")
 
-    db_url: str = Field(alias="DB_URL")
     db_username: str = Field(alias="DB_USERNAME")
     db_password: str = Field(alias="DB_PASSWORD")
+    db_jdbc_url: str = Field(alias="DB_JDBC_URL")
+    db_driver_class: str = Field(alias="DB_DRIVER_CLASS")
+    db_jar_path: str = Field(alias="DB_JAR_PATH")
 
 
 @lru_cache

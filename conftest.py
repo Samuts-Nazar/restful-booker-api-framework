@@ -4,6 +4,15 @@ from src.config.settings import settings
 from src.api.client import ApiClient
 from src.api.auth_service import AuthService
 from src.api.booking_service import BookingService
+from src.database.connection import DatabaseConnection
+
+@pytest.fixture
+def db_cursor():
+    db = DatabaseConnection(jdbc_url=settings.db_jdbc_url, driver_class=settings.db_driver_class, jar_path=settings.db_jar_path, username=settings.db_username, password=settings.db_password)
+    connection = db.connect()
+    cursor = db.cursor()
+    yield cursor
+    connection.close()
 
 fake = Faker()
 
