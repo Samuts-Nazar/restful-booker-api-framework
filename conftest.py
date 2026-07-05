@@ -13,7 +13,7 @@ def booking_payload():
     checkout = fake.date_between(start_date='+15d', end_date='+30d')
 
     return {
-        "roomid": 1,
+        "roomid": fake.unique.random_int(min=1, max=1000000),
         "firstname": fake.first_name(),
         "lastname": fake.last_name(),
         "depositpaid": fake.boolean(),
