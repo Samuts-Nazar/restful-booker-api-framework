@@ -11,6 +11,11 @@ from src.database.connection import DatabaseConnection
 
 fake = Faker()
 
+@pytest.fixture
+def auth_token(auth_service):
+    auth_response = auth_service.login(settings.username, settings.password)
+    return auth_response.cookies.get("token")
+
 
 # --- Clients (session-scope) ---
 

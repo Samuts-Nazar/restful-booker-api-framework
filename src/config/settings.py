@@ -15,7 +15,7 @@ class Settings(BaseSettings):
     room_url: str = Field(alias="ROOM_URL")
     branding_url: str = Field(alias="BRANDING_URL")
     message_url: str = Field(alias="MESSAGE_URL")
-    report_url: str = Field(alias="REPORT_URL")
+    health_url: str = Field(alias="HEALTH_URL")
     assets_url: str = Field(alias="ASSETS_URL")
 
     default_timeout: int = 10
