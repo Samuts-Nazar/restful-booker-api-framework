@@ -1,1 +1,35 @@
+# secrets
 .env
+*.env
+!.env.example
+
+# python
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.egg-info/
+.mypy_cache/
+
+# test reports / artifacts
+report.html
+.coverage
+htmlcov/
+allure-results/
+*.log
+
+# jdbc / drivers
+*.jar
+drivers/
+
+# docker
+docker-compose.override.yml
+
+# ide
+.idea/
+.vscode/
+*.iml
+
+# os
+.DS_Store
+EOF

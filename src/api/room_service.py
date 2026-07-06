@@ -18,5 +18,5 @@ class RoomService(BaseService):
         return self.api_client.get(self.endpoint)
     
     def create_room(self, payload: dict) -> requests.Response:
-        return self.api_client.post(self.endpoint, json=payload)
+        return self.api_client.post(f"{self.endpoint}/", json=payload)
     
