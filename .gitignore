@@ -18,10 +18,6 @@ htmlcov/
 allure-results/
 *.log
 
-# jdbc / drivers
-*.jar
-drivers/
-
 # docker
 docker-compose.override.yml
 
