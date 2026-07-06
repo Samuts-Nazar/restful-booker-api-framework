@@ -1,10 +1,9 @@
 import requests
+from src.api.base_service import BaseService
 
-
-class BookingService:
+class BookingService(BaseService):
     def __init__(self, api_client):
-        self.api_client = api_client
-        self.endpoint = "/booking/"
+        super().__init__(api_client, endpoint="/booking/")
 
     def create_booking(self, payload: dict) -> requests.Response:
         return self.api_client.post(self.endpoint, json=payload)
