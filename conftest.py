@@ -11,11 +11,17 @@ from src.database.connection import DatabaseConnection
 
 fake = Faker()
 
+# --- Authification ---
+
 @pytest.fixture
 def auth_token(auth_service):
     auth_response = auth_service.login(settings.username, settings.password)
     return auth_response.cookies.get("token")
 
+@pytest.fixture
+def auth_room_service(auth_token, room_service):
+    room_service.api_client.session.headers.update({"Cookie": f"token={auth_token}"})
+    return room_service
 
 # --- Clients (session-scope) ---
 
